@@ -1,0 +1,25 @@
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: horsemaze
+  labels:
+    app: horsemaze
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: horsemaze
+  template:
+    metadata:
+      name: horsemaze
+      labels:
+        app: horsemaze
+    spec:
+      containers:
+      - name: horsemaze
+        image: docker.io/lakkinzimusic/horsemaze:0.0.2
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8050
+          protocol: TCP
